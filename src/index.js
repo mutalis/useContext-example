@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import ReactDOM from "react-dom";
 
 // Create a Context
@@ -21,11 +21,8 @@ function App() {
 function Display() {
   // Use the Consumer to grab the value from context
   // Notice this component didn't get any props!
-  return (
-    <NumberContext.Consumer>
-      {value => <div>The answer is {value}.</div>}
-    </NumberContext.Consumer>
-  );
+  const value = useContext(NumberContext);
+  return <div>The answer is {value}</div>;
 }
 
 ReactDOM.render(<App />, document.querySelector("#root"));
